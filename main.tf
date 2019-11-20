@@ -7,6 +7,9 @@ locals {
   cloudwatch_alarm = var.cloudwatch_alarm
 }
 
+
+
+
 resource "aws_cloudwatch_metric_alarm" "billing_alarm_to_existing_sns" {
   for_each  = local.cloudwatch_alarm
   alarm_name          = "billing-alarm-lookup(each.value, "monthly_billing_threshold", null)"
