@@ -4,13 +4,14 @@ provider "aws" {
 }
 
 locals {
+  account_alias = var.account_alias
   cloudwatch_alarm = var.cloudwatch_alarm
   sns_topic_arn = var.sns_topic_arn
 }
 
 resource "aws_cloudwatch_metric_alarm" "billing_alarm_to_existing_sns" {
   for_each  = local.cloudwatch_alarm
-  alarm_name          = each.key
+  alarm_name          = "${local.account_alias}"-"${each.key}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "EstimatedCharges"
