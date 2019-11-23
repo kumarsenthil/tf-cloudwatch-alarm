@@ -5,6 +5,7 @@ provider "aws" {
 
 locals {
   cloudwatch_alarm = var.cloudwatch_alarm
+  sns_topic_arn = var.sns_topic_arn
 }
 
 resource "aws_cloudwatch_metric_alarm" "billing_alarm_to_existing_sns" {

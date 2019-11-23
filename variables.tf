@@ -8,3 +8,9 @@ variable "cloudwatch_alarm" {
   description = "The map of map of cloudwatch Alarm to create"
   type        = map(map(string))
 }
+
+variable "sns_topic_arn" {
+  description = "SNS Topic ARN for Cloudwatch"
+  type        = string
+}
+
