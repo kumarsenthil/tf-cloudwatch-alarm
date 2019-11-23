@@ -19,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "billing_alarm_to_existing_sns" {
   statistic           = "Maximum"
   alarm_description   = "Billing consolidated alarm >= US$"
   threshold           = lookup(each.value, "monthly_billing_threshold", null)
-  alarm_actions       = local.sns_topic_arn
+  alarm_actions       = "{local.sns_topic_arn}
 
   dimensions = {
     Currency = lookup(each.value, "currency", null)
