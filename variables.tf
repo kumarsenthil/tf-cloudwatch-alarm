@@ -11,6 +11,6 @@ variable "cloudwatch_alarm" {
 
 variable "sns_topic_arn" {
   description = "SNS Topic ARN for Cloudwatch"
-  type        = string
+  type        = list
 }
 
