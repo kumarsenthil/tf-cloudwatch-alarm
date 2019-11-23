@@ -6,7 +6,7 @@ variable "region" {
 
 variable "account_alias" {
   description = "Account alias for Cloudwatch"
-  type        = list
+  type        = string
 }
 
 variable "cloudwatch_alarm" {
